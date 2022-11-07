@@ -1,0 +1,94 @@
+<html lang="en">
+    <head>
+  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="colors.png" />
+        <link rel="stylesheet" href="style.css">
+      
+      
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+        
+        
+        <title>Hex Color Application</title>
+        <style>
+          .top{
+              margin-top: 3px;
+          }
+      h1{
+          font-style: italic;
+      
+      }
+      .btn{
+       
+          background-color:aqua;
+          color:red;
+          margin-top: 100px;
+      
+      }
+      #bt{
+         
+          display: flex;
+        justify-content: center;
+        
+      }
+      h2{
+          background-color:azure;
+      }
+      #change{
+          margin-top: 100px;
+          display: flex;
+        justify-content: center;
+      }
+        </style>
+      </head>
+      <body>
+      
+        <main>
+          <div class="container">
+              <div class="row">
+                  <div class="col">
+                      <div id="hex-colors">
+                          <h1 class="top">Click on the below button to see a  hex color combination</h1>
+                          <div id="bt">
+                          <button class="btn" id="submit">Click here</button>
+                          </div>
+                          <div id="change">
+                           <h2> Background color is(#<span id="hex1">ffffff</span>, #<span id="hex2">ffffff</span>);</h2>
+                           </div>
+                          </div>
+                  </div>
+              </div>
+          </div>
+        </main>
+
+  
+  <script>
+    document.querySelector("#submit").addEventListener("click", () => {
+    var hexNum = ["0","1","2","3","4","5","6","7","8","9","A", "B", "C", "D", "E", "F"];
+    var hex1 = "";
+    var hex2 = "";
+    var IndexRandom = 0;
+    
+    for(let i = 0; i < 6;i++){
+      IndexRandom = Math.floor(Math.random() * hexNum.length);
+        hex1 += hexNum[IndexRandom];
+      IndexRandom = Math.floor(Math.random() * hexNum.length);
+        hex2 += hexNum[IndexRandom];
+    }
+  
+    document.body.style.background = `linear-gradient(#${hex1}, #${hex2})`;
+    document.querySelector("#hex1").textContent = hex1;
+    document.querySelector("#hex2").textContent = hex2;
+    });
+  </script>
+</body>
+</html>
